@@ -4,7 +4,7 @@
   <button class="play-btn" @click="startGame" v-if="isPlaying === false">
     Play
   </button>
-  <Guess v-if="isPlaying" />
+  <Guess v-if="isPlaying" @guess="guess" />
 </template>
 
 <script>
@@ -28,6 +28,16 @@ export default {
   methods: {
     startGame() {
       this.isPlaying = true;
+    },
+
+    guess(guessedSide) {
+      setTimeout(() => {
+        this.CheckWinLose(guessedSide);
+      }, 6000);
+    },
+
+    CheckWinLose(guessedSide) {
+      console.log(guessedSide);
     },
   },
 };

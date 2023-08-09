@@ -1,13 +1,44 @@
 <template>
   <h4>Give Your Best Guess!</h4>
   <div class="guess-container">
-    <button class="guess-btn">Head</button>
-    <button class="guess-btn">Tail</button>
+    <button
+      class="guess-btn"
+      @click="
+        () => {
+          guess(1);
+        }
+      "
+    >
+      Head
+    </button>
+    <button
+      class="guess-btn"
+      @click="
+        () => {
+          guess(2);
+        }
+      "
+    >
+      Tail
+    </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      guessedSide: "",
+    };
+  },
+
+  methods: {
+    guess(Side) {
+      this.guessedSide = Side;
+      this.$emit("guess", this.guessedSide);
+    },
+  },
+};
 </script>
 
 <style>
