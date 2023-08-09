@@ -1,10 +1,15 @@
 <template>
-  <p>flipcoin game</p>
+  <Coin />
 </template>
 
 <script>
+import Coin from "./components/coin.vue";
 export default {
   name: "App",
+
+  components: {
+    Coin,
+  },
 };
 </script>
 
