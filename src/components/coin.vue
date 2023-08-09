@@ -1,25 +1,18 @@
 <template>
   <div class="coin" :class="{ coinanimation: isPlaying }">
     <div class="head" :class="{ headanimation: isPlaying }">
-      <h1 v-if="isPlaying">{{ head }}</h1>
+      <h1 v-if="isPlaying">H</h1>
       <h1 v-if="result">{{ result }}</h1>
     </div>
     <div v-if="isPlaying" :class="{ tailanimation: isPlaying }" class="tail">
-      <h1>{{ tail }}</h1>
+      <h1>T</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["isPlaying"],
-  data() {
-    return {
-      head: "H",
-      tail: "T",
-      result: "",
-    };
-  },
+  props: ["isPlaying", "result"],
 };
 </script>
 
@@ -32,6 +25,7 @@ export default {
   border: 1px solid black;
   border-radius: 50%;
   margin: 100px auto;
+  margin-bottom: 50px;
   position: relative;
   /* animation: flip 0.7s infinite; */
   perspective: 1000px;

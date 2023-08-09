@@ -1,23 +1,27 @@
 <template>
   <h1>Let's guess Head or Tail</h1>
-  <Coin :isPlaying="isPlaying" />
+  <Coin :isPlaying="isPlaying" :result="result" />
   <button class="play-btn" @click="startGame" v-if="isPlaying === false">
     Play
   </button>
+  <Guess v-if="isPlaying" />
 </template>
 
 <script>
 import Coin from "./components/coin.vue";
+import Guess from "./components/guess.vue";
 export default {
   name: "App",
 
   components: {
     Coin,
+    Guess,
   },
 
   data() {
     return {
       isPlaying: false,
+      result: "",
     };
   },
 
