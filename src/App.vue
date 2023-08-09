@@ -1,5 +1,9 @@
 <template>
-  <Coin />
+  <h1>Let's guess Head or Tail</h1>
+  <Coin :isPlaying="isPlaying" />
+  <button class="play-btn" @click="startGame" v-if="isPlaying === false">
+    Play
+  </button>
 </template>
 
 <script>
@@ -9,6 +13,18 @@ export default {
 
   components: {
     Coin,
+  },
+
+  data() {
+    return {
+      isPlaying: false,
+    };
+  },
+
+  methods: {
+    startGame() {
+      this.isPlaying = true;
+    },
   },
 };
 </script>
@@ -21,5 +37,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.play-btn {
+  padding: 20px 40px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  background-color: rgb(105, 194, 105);
+  color: white;
+  font-size: 20px;
 }
 </style>

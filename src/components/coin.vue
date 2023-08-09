@@ -1,17 +1,23 @@
 <template>
   <div class="coin" :class="{ coinanimation: isPlaying }">
-    <div class="head" :class="{ headanimation: isPlaying }"><h1>H</h1></div>
+    <div class="head" :class="{ headanimation: isPlaying }">
+      <h1 v-if="isPlaying">{{ head }}</h1>
+      <h1 v-if="result">{{ result }}</h1>
+    </div>
     <div v-if="isPlaying" :class="{ tailanimation: isPlaying }" class="tail">
-      <h1>T</h1>
+      <h1>{{ tail }}</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["isPlaying"],
   data() {
     return {
-      isPlaying: false,
+      head: "H",
+      tail: "T",
+      result: "",
     };
   },
 };
