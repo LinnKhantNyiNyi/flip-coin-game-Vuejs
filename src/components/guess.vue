@@ -8,6 +8,7 @@
           guess(1);
         }
       "
+      :disabled="isChosen"
     >
       Head
     </button>
@@ -18,6 +19,7 @@
           guess(2);
         }
       "
+      :disabled="isChosen"
     >
       Tail
     </button>
@@ -29,11 +31,13 @@ export default {
   data() {
     return {
       guessedSide: "",
+      isChosen: false,
     };
   },
 
   methods: {
     guess(Side) {
+      this.isChosen = true;
       this.guessedSide = Side;
       this.$emit("guess", this.guessedSide);
     },
