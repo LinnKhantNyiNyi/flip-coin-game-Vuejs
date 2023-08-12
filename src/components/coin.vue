@@ -1,11 +1,34 @@
 <template>
   <div class="coin" :class="{ coinanimation: isPlaying }">
     <div class="head" :class="{ headanimation: isPlaying }">
-      <h1 v-if="isPlaying">H</h1>
-      <h1 v-if="result">{{ result }}</h1>
+      <img
+        v-if="isPlaying"
+        src="../assets/imgs/head.png"
+        alt=""
+        class="headside"
+      />
+
+      <img
+        v-if="result == 'H'"
+        src="../assets/imgs/head.png"
+        alt=""
+        class="headside"
+      />
+
+      <img
+        v-if="result == 'T'"
+        src="../assets/imgs/tail.png"
+        alt=""
+        class="tailside"
+      />
     </div>
     <div v-if="isPlaying" :class="{ tailanimation: isPlaying }" class="tail">
-      <h1>T</h1>
+      <img
+        v-if="isPlaying"
+        src="../assets/imgs/tail.png"
+        alt=""
+        class="tailside"
+      />
     </div>
   </div>
 </template>
@@ -22,7 +45,7 @@ export default {
   height: 200px;
   background-color: rgb(224, 201, 68);
   text-align: center;
-  border: 1px solid black;
+  border: 5px solid black;
   border-radius: 50%;
   margin: 100px auto;
   margin-bottom: 50px;
@@ -54,6 +77,20 @@ export default {
 }
 .tailanimation {
   animation: flip-text-tail 0.7s infinite;
+}
+
+.headside {
+  position: relative;
+  top: -20px;
+  width: 380px;
+  border-radius: 50%;
+}
+.tailside {
+  position: relative;
+  top: -10px;
+  left: -2px;
+  width: 380px;
+  border-radius: 50%;
 }
 
 @keyframes flip {
